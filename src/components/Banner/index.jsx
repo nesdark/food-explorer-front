@@ -1,10 +1,13 @@
 import { Container, Fruits } from './styles';
+import { breakpoints } from '../../pages/styles/breakpoints';
 
 export function Banner() {
+  const banner = window.innerWidth <= 768 ? 'banner-mobile' : 'banner';
+
   return (
     <Container>
       <Fruits>
-        <img src="../../../public/banner.png" alt="Imagem de frutas" />
+        <img src={`../../../public/${banner}.png`} alt="Imagem de fruta" />
       </Fruits>
       <div>
         <h2>Sabores inigualáveis</h2>

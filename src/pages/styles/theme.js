@@ -1,3 +1,16 @@
+// import { breakpoints } from './breakpoints';
+
+// const
+
+// switch (key) {
+//   case value:
+
+//     break;
+
+//   default:
+//     break;
+// }
+
 export default {
   COLORS: {
     LIGHT: '#FFFFFF',
@@ -21,7 +34,6 @@ export default {
     FAMILY_PRIMARY: "'Roboto', serif",
     FAMILY_SECONDARY: "'Poppins', serif",
 
-    HEADER: '',
     SMALL: '1.6rem',
     MEDIUM: '2.2rem',
     LARGE: '2.8rem',
