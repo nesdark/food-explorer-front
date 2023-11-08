@@ -5,13 +5,14 @@ import { breakpoints } from '../../pages/styles/breakpoints';
 export const Container = styled.div`
   width: min(112rem, 80vw);
 
-  height: 26rem;
-
   display: flex;
   align-items: center;
   justify-content: flex-end;
 
-  padding: 9.2rem 10rem 9.2rem 0;
+  padding: clamp(3.6rem, 5.04vw + 1.443rem, 8.7rem)
+    clamp(0.8rem, 9.091vw - 3.091rem, 10rem)
+    clamp(2.2rem, 6.917vw - 0.76rem, 9.2rem)
+    clamp(15.3rem, 44.17vw - 3.605rem, 60rem);
 
   border-radius: 0.8rem;
 
@@ -26,16 +27,16 @@ export const Container = styled.div`
   h2 {
     font-family: ${({ theme }) => theme.FONT.FAMILY_SECONDARY};
     font-weight: 500;
-    font-size: ${({ theme }) => theme.FONT.EXTRA_LARGE};
+    font-size: clamp(1.8rem, 2.174vw + 0.87rem, 4rem);
 
     margin-bottom: 0.8rem;
   }
 
   p {
-    font-size: ${({ theme }) => theme.FONT.SMALL};
+    font-size: clamp(1.2rem, 0.395vw + 1.031rem, 1.6rem);
   }
 
-  @media (max-width: ${breakpoints.XL}) {
+  /* @media (max-width: ${breakpoints.XL}) {
     padding: 9.2rem clamp(5rem, 5%, 10rem);
 
     h2 {
@@ -57,34 +58,20 @@ export const Container = styled.div`
     p {
       font-size: 1.3rem;
     }
-  }
+  } */
 `;
 
 export const Fruits = styled.div`
   > img {
-    width: min(40vw, 65.6rem);
-    height: min(25.12vw, 41.2rem);
+    width: clamp(19.1rem, 45.949vw - 0.566rem, 65.6rem);
+    height: clamp(14.9rem, 25.988vw + 3.777rem, 41.2rem);
   }
 
   position: absolute;
-  left: -5.4rem;
+  right: clamp(21.5rem, 32.312vw + 7.67rem, 54.2rem);
   bottom: -1.4rem;
 
-  @media (max-width: ${breakpoints.LG}) {
-    > img {
-      width: min(45vw, 40.8rem);
-      height: min(30.12vw, 25.624rem);
-    }
-
-    left: -7vw;
-  }
-
   @media (max-width: ${breakpoints.MD}) {
-    > img {
-      width: 25rem;
-      height: 19.5rem;
-    }
-
     bottom: 0;
   }
 `;
