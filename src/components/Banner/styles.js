@@ -3,8 +3,6 @@ import theme from '../../pages/styles/theme';
 import { breakpoints } from '../../pages/styles/breakpoints';
 
 export const Container = styled.div`
-  width: min(112rem, 80vw);
-
   display: flex;
   align-items: center;
   justify-content: flex-end;
@@ -35,30 +33,6 @@ export const Container = styled.div`
   p {
     font-size: clamp(1.2rem, 0.395vw + 1.031rem, 1.6rem);
   }
-
-  /* @media (max-width: ${breakpoints.XL}) {
-    padding: 9.2rem clamp(5rem, 5%, 10rem);
-
-    h2 {
-      font-size: clamp(1.8rem, 0.75rem + 2vw, 3rem);
-    }
-  }
-
-  @media (max-width: ${breakpoints.LG}) {
-    p {
-      width: 23rem;
-    }
-  }
-
-  @media (max-width: ${breakpoints.MD}) {
-    height: auto;
-
-    padding: 5.2rem 5rem 5.2rem 0;
-
-    p {
-      font-size: 1.3rem;
-    }
-  } */
 `;
 
 export const Fruits = styled.div`

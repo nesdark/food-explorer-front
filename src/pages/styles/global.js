@@ -26,6 +26,11 @@ export default createGlobalStyle`
     font-family: ${({ theme }) => theme.FONT.FAMILY_PRIMARY};
   }
 
+  button {
+    background: none;
+    border: none;
+  }
+
   a {
     text-decoration: none;
   }

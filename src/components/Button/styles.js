@@ -14,7 +14,7 @@ export const Container = styled.button`
   padding: 1.2rem 4.65rem;
 
   background-color: ${({ theme }) => theme.COLORS.TOMATO_100};
-  font-size: ${({ theme }) => theme.FONT.SMALL};
+  font-size: 1.4rem;
   font-family: ${({ theme }) => theme.FONT.FAMILY_SECONDARY};
   color: ${({ theme }) => theme.COLORS.LIGHT};
 `;

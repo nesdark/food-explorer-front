@@ -18,8 +18,12 @@ export default {
     LIGHT_500: '#7C7C8A',
 
     DARK_BLUE: '#001119',
+    DARK_200: '#000204',
+    DARK_300: '#00070A',
     DARK_400: '#000A0F',
     DARK_900: '#0D1D25',
+
+    TINTS_CAKE_200: '#82F3FF',
 
     TOMATO_100: '#750310',
     TOMATO_200: '#92000E',
@@ -37,6 +41,6 @@ export default {
     SMALL: '1.6rem',
     MEDIUM: '2.2rem',
     LARGE: '2.8rem',
-    EXTRA_LARGE: '3.4rem',
+    EXTRA_LARGE: 'clamp(1.8rem, 1.383vw + 1.208rem, 3.2rem)',
   },
 };
