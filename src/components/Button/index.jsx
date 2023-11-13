@@ -1,10 +1,14 @@
 import { Container } from './styles';
 
-export function Button({ title, icon: Icon, ...rest }) {
+export function Button({ title, icon: Icon, quantity, height, ...rest }) {
   return (
-    <Container {...rest}>
+    <Container
+      {...rest}
+      className={Icon ? 'responsiveHide' : '' + height ? 'height' : ''}
+    >
+      <span>0</span>
       {Icon && <Icon size={32} />}
-      {title}
+      <div>{title}</div>
     </Container>
   );
 }

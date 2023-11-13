@@ -1,27 +1,22 @@
-// import { breakpoints } from './breakpoints';
-
-// const
-
-// switch (key) {
-//   case value:
-
-//     break;
-
-//   default:
-//     break;
-// }
-
 export default {
   COLORS: {
     LIGHT: '#FFFFFF',
     LIGHT_300: '#E1E1E6',
+    LIGHT_400: '#C4C4CC',
     LIGHT_500: '#7C7C8A',
+    LIGHT_600: '#76797B',
+    LIGHT_700: '#4D585E',
 
     DARK_BLUE: '#001119',
     DARK_200: '#000204',
     DARK_300: '#00070A',
     DARK_400: '#000A0F',
+    DARK_500: '#7C7C8A',
+    DARK_600: '#00111A',
+    DARK_700: '#001119',
+    DARK_800: '#0D161B',
     DARK_900: '#0D1D25',
+    DARK_1000: '#192227',
 
     TINTS_CAKE_200: '#82F3FF',
 

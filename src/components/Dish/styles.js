@@ -12,6 +12,10 @@ export const Container = styled.div`
 
   padding: 2.4rem;
 
+  &.admin {
+    padding: 7rem 2.4rem;
+  }
+
   border-radius: 0.8rem;
   border: 1px solid ${({ theme }) => theme.COLORS.DARK_200};
   background-color: ${({ theme }) => theme.COLORS.DARK_300};
@@ -23,7 +27,10 @@ export const Container = styled.div`
     height: clamp(8.8rem, 8.696vw + 5.078rem, 17.6rem);
   }
 
-  > h3 button {
+  > h3 a {
+    width: max-content;
+
+    color: ${({ theme }) => theme.COLORS.LIGHT};
     font-family: ${({ theme }) => theme.FONT.FAMILY_SECONDARY};
     font-size: clamp(1.4rem, 0.988vw + 0.977rem, 2.4rem);
     font-weight: 700;
@@ -49,10 +56,8 @@ export const Container = styled.div`
     line-height: 160%;
   }
 
-  > div {
-    display: flex;
-    align-items: center;
-    gap: 1.6rem;
+  @media (max-width: ${breakpoints.LG}) {
+    min-width: 25rem;
   }
 
   @media (max-width: ${breakpoints.SM}) {
@@ -73,24 +78,10 @@ export const Container = styled.div`
   }
 `;
 
-export const Favorite = styled.div`
+export const Favorite = styled.button`
   color: white;
 
   position: absolute;
   top: 1.6rem;
   right: 1.6rem;
-`;
-
-export const Quantity = styled.div`
-  display: flex;
-  align-items: center;
-  gap: 1.4rem;
-
-  > svg {
-    font-size: 2.4rem;
-  }
-
-  p {
-    font-size: clamp(1.6rem, 0.395vw + 1.431rem, 2rem);
-  }
 `;

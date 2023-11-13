@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import theme from '../../pages/styles/theme';
+import { breakpoints } from '../../pages/styles/breakpoints';
 
 export const Container = styled.label`
   cursor: pointer;
@@ -16,6 +17,24 @@ export const Container = styled.label`
   padding: 1.6rem 1.4rem;
 
   background-color: ${({ theme }) => theme.COLORS.DARK_900};
+
+  input[type='file'] {
+    display: none;
+  }
+
+  &:has(input[type='file']) {
+    width: 100%;
+
+    border: none;
+    border-radius: 0.8rem;
+
+    padding: 1.2rem 1.4rem;
+
+    color: ${({ theme }) => theme.COLORS.LIGHT};
+    font-size: 1.6rem;
+
+    background: ${({ theme }) => theme.COLORS.DARK_800};
+  }
 
   > input {
     width: 100%;

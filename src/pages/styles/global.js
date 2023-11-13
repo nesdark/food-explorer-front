@@ -9,6 +9,7 @@ export default createGlobalStyle`
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    list-style: none;
   }
 
   body {
@@ -24,6 +25,10 @@ export default createGlobalStyle`
 
   body * {
     font-family: ${({ theme }) => theme.FONT.FAMILY_PRIMARY};
+  }
+
+  html, body {
+    min-height: 100vh;
   }
 
   button {

@@ -14,7 +14,7 @@ export const Container = styled.div`
 
   border-radius: 0.8rem;
 
-  margin: 16.4rem auto 6.2rem;
+  margin: clamp(4.4rem, 11.858vw - 0.675rem, 16.4rem) auto 6.2rem;
 
   background: ${({ theme }) => theme.COLORS.BANNER_GRADIENT};
 

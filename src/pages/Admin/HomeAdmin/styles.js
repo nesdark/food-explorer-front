@@ -1,11 +1,18 @@
 import styled from 'styled-components';
 
+import { breakpoints } from '../../styles/breakpoints';
+
 export const Container = styled.div`
   width: 100vw;
   height: 100vh;
 
   display: flex;
   flex-direction: column;
+
+  /* MENU */
+  header.menu-active + main {
+    display: none;
+  }
 `;
 
 export const Main = styled.main`
@@ -38,6 +45,10 @@ export const AreaLeft = styled.div`
   position: absolute;
   left: -1px;
   z-index: 100;
+
+  @media (max-width: ${breakpoints.LG}) {
+    display: none;
+  }
 `;
 
 export const AreaRight = styled.div`
@@ -56,6 +67,7 @@ export const AreaRight = styled.div`
   right: -1px;
   z-index: 100;
 
-  button {
+  @media (max-width: ${breakpoints.LG}) {
+    display: none;
   }
 `;
