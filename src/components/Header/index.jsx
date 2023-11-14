@@ -1,4 +1,5 @@
 import { useRef } from 'react';
+import { useAuth } from '../../hooks/auth';
 
 import { BsSearch } from 'react-icons/bs';
 import { PiReceiptLight } from 'react-icons/pi';
@@ -15,6 +16,8 @@ import { Logo } from '../Logo';
 import { Link } from 'react-router-dom';
 
 export function Header({ admin = false }) {
+  const { signOut } = useAuth();
+
   const header = useRef();
 
   const MenuControls = {
@@ -80,7 +83,7 @@ export function Header({ admin = false }) {
           <TextButton title="Sair" />
         </li>
       </Menu>
-      <IconButton icon={GoSignOut} size="32" />
+      <IconButton icon={GoSignOut} size="32" onClick={signOut} />
     </Container>
   );
 }
