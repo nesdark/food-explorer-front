@@ -1,4 +1,4 @@
-import { useRef } from 'react';
+import { Children, useRef } from 'react';
 import { useAuth } from '../../hooks/auth';
 
 import { BsSearch } from 'react-icons/bs';
@@ -15,8 +15,9 @@ import { TextButton } from '../TextButton';
 import { Logo } from '../Logo';
 import { Link } from 'react-router-dom';
 
-export function Header({ admin = false }) {
+export function Header({ admin = false, search }) {
   const { signOut } = useAuth();
+  console.log(search);
 
   const header = useRef();
 
@@ -52,6 +53,7 @@ export function Header({ admin = false }) {
         type="search"
         icon={BsSearch}
         placeholder="Busque por pratos ou ingredientes"
+        Search={search}
       />
 
       {admin ? (

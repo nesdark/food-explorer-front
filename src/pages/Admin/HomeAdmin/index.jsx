@@ -5,10 +5,14 @@ import { Dish } from '../../../components/Dish';
 import { DishesSection } from '../../../components/DishesSection';
 import { Footer } from '../../../components/Footer';
 
-import { useRef } from 'react';
+import { useRef, useState } from 'react';
 
 export function HomeAdmin() {
+  const { search, setSearch } = useState('');
   const carousel = useRef(null);
+
+  console.log(search);
+  console.log(setSearch);
 
   const handleLeftClick = (e) => {
     e.preventDefault;
@@ -24,7 +28,7 @@ export function HomeAdmin() {
 
   return (
     <Container>
-      <Header admin />
+      <Header admin search={setSearch} />
       <Main>
         <Banner />
         <DishesSection>

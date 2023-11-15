@@ -26,12 +26,16 @@ export function CreateDish() {
   const [items, setItems] = useState([]);
   const [newItem, setNewItem] = useState('');
 
+  const [dishImage, setDishImage] = useState(null);
+  const [dishImageFile, setDishImageFile] = useState(null);
+
   function handleCategory(e) {
     setCategory(e.target.value);
   }
 
   function handleAddItem() {
     setItems((prevState) => [...prevState, newItem]);
+    setNewItem('');
   }
 
   function handleRemoveItem(itemToDelete) {
@@ -43,18 +47,55 @@ export function CreateDish() {
   async function handleNewProduct(e) {
     e.preventDefault();
 
-    console.log(category);
+    if (!title) {
+      return alert('Digite o nome do prato.');
+    }
 
-    await api.post('/products', {
+    if (category == '') {
+      return alert('Por favor preencha o campo de categoria');
+    }
+
+    if (newItem) {
+      return alert(
+        'Você deixou um ingrediente no campo de adicionar, porém não a adicionou. Apague o ingrediente ou adicione-o'
+      );
+    }
+
+    if (items.length === 0) {
+      return alert('Por favor adicione um ou mais ingredientes.');
+    }
+
+    if (!title) {
+      return alert('Digite o preço do produto');
+    }
+
+    if (!description) {
+      return alert('Digite o preço do produto');
+    }
+
+    const response = await api.post('/products/create', {
       title,
       price,
       description,
       ingredients: items,
       category,
+      image: 'image-url',
     });
+
+    console.log({ dishImageFile });
+
+    await api.patch(`/products/image/${response.data.id}`, { dishImageFile });
 
     alert('Prato criada com sucesso!');
     navigate('/');
+  }
+
+  function handleChangeDishImage(event) {
+    const file = event.target.files[0];
+    setDishImageFile(file.name);
+
+    const imagePreview = URL.createObjectURL(file);
+    setDishImage(imagePreview);
   }
 
   return (
@@ -74,6 +115,7 @@ export function CreateDish() {
               icon={BsUpload}
               label="Selecione a imagem"
               accept="image/*"
+              onChange={handleChangeDishImage}
             />
           </div>
           <LabelInput
@@ -86,7 +128,7 @@ export function CreateDish() {
           <label>
             Categoria
             <select id="category" onChange={handleCategory}>
-              <option>Selecione uma opção</option>
+              <option value="">Selecione uma opção</option>
               <option value="Refeição">Refeição</option>
               <option value="Sobremesa">Sobremesa</option>
               <option value="Bebidas">Bebidas</option>

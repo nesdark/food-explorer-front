@@ -1,3 +1,5 @@
+import { useState } from 'react';
+
 import { BsChevronLeft, BsUpload } from 'react-icons/bs';
 
 import { Container, Main, Edit } from './styles.js';
@@ -11,6 +13,12 @@ import { Items } from '../../../components/Items/index.jsx';
 import { Link } from 'react-router-dom';
 
 export function EditDish() {
+  const [title, setTitle] = useState();
+  const [category, setCategory] = useState();
+  const [ingredients, setIngredients] = useState();
+  const [price, setPrice] = useState();
+  const [description, setDescription] = useState();
+
   return (
     <Container>
       <Header admin />
