@@ -41,11 +41,34 @@ Food Explorer oferece duas personas: Admin e Usuário.
 - Pratos com imagem, nome, categoria, descrição, ingredientes e preço.
 - Adição de pratos gera mensagem de sucesso e redirecionamento.
 
+<h3 style="color: #FF1B1C">Atenção
+</h3>
+
+O projeto pode apresentar problemas no banner na visualização pelo Netlify
+
 ### Usuário:
 
 - Visualização completa do cardápio.
 - Clique no nome do prato para detalhes específicos.
 - Experiência intuitiva e informativa.
+
+## 💻 Instalação
+
+Para iniciar o projeto na sua máquina você deverá executar:
+
+```bash
+  $ npm install
+  $ npm run dev
+```
+
+Além disso você deverá abrir o `/src/services/api.js` e alterar o `baseUrl` para `http://localhost:8080`. <br>
+O que você acabou de fazer é definir o local onde o seu servidor está rodando
+
+Depois disso abra a seguinte URL no seu navegador
+
+```bash
+  http://localhost:5173/
+```
 
 ## 🔖 Layout
 
