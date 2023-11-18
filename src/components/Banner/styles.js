@@ -22,6 +22,10 @@ export const Container = styled.div`
 
   color: ${({ theme }) => theme.COLORS.LIGHT_300};
 
+  > .text {
+    animation: rightToLeft 500ms forwards;
+  }
+
   h2 {
     font-family: ${({ theme }) => theme.FONT.FAMILY_SECONDARY};
     font-weight: 500;
@@ -33,9 +37,23 @@ export const Container = styled.div`
   p {
     font-size: clamp(1.2rem, 0.395vw + 1.031rem, 1.6rem);
   }
+
+  @keyframes rightToLeft {
+    from {
+      opacity: 0;
+      transform: translateX(50%);
+    }
+
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
 `;
 
 export const Fruits = styled.div`
+  animation: leftToRight 500ms forwards;
+
   > img {
     width: clamp(19.1rem, 45.949vw - 0.566rem, 65.6rem);
     height: clamp(14.9rem, 25.988vw + 3.777rem, 41.2rem);
@@ -47,5 +65,17 @@ export const Fruits = styled.div`
 
   @media (max-width: ${breakpoints.MD}) {
     bottom: 0;
+  }
+
+  @keyframes leftToRight {
+    from {
+      opacity: 0;
+      transform: translateX(-50%);
+    }
+
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
   }
 `;

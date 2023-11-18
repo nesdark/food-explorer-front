@@ -3,7 +3,7 @@ import theme from '../../pages/styles/theme';
 import { breakpoints } from '../../pages/styles/breakpoints';
 
 export const Container = styled.div`
-  width: fit-content;
+  width: clamp(21rem, 9.289vw + 17.025rem, 30.4rem);
 
   display: flex;
   flex-direction: column;
@@ -25,9 +25,12 @@ export const Container = styled.div`
   > img {
     width: clamp(8.8rem, 8.696vw + 5.078rem, 17.6rem);
     height: clamp(8.8rem, 8.696vw + 5.078rem, 17.6rem);
+
+    object-fit: cover;
+    clip-path: circle();
   }
 
-  > h3 a {
+  > h3 {
     width: max-content;
 
     color: ${({ theme }) => theme.COLORS.LIGHT};

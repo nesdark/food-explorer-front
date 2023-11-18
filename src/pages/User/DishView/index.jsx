@@ -1,44 +1,58 @@
 import { BsChevronLeft } from 'react-icons/bs';
 
+import { Link, useParams } from 'react-router-dom';
+import { api } from '../../../services/api';
+import { useState, useEffect } from 'react';
+
 import { Container, Main, Info, Ingredients } from './styles';
 
 import { Footer } from '../../../components/Footer';
 import { Header } from '../../../components/Header';
 import { TextButton } from '../../../components/TextButton';
-import { BuyOptions } from '../../../components/BuyOptions';
+import { Button } from '../../../components/Button';
 import { Tag } from '../../../components/Tag';
-import { Link } from 'react-router-dom';
+import { BuyOptions } from '../../../components/BuyOptions';
 
 export function DishView() {
+  const [data, setData] = useState(null);
+
+  const params = useParams();
+  useEffect(() => {
+    async function fetchDish() {
+      const response = await api.get(`/products/${params.id}`);
+      setData(response.data);
+    }
+    fetchDish();
+  }, []);
+
   return (
     <Container>
       <Header />
-      <Main>
-        <Link to="/">
-          <TextButton icon={BsChevronLeft} size={32} title="voltar" />
-        </Link>
-        <div>
-          <img src="../../../public/salad.png" alt="" />
-          <Info>
-            <div>
-              <h2>Salada Ravanello</h2>
-              <p>
-                Rabanetes, folhas verdes e molho agridoce salpicados com
-                gergelim.
-              </p>
-              <Ingredients>
-                <Tag title="alface" />
-                <Tag title="cebola" />
-                <Tag title="pão naan" />
-                <Tag title="pepino" />
-                <Tag title="rabanete" />
-                <Tag title="tomate" />
-              </Ingredients>
-            </div>
-            <BuyOptions />
-          </Info>
-        </div>
-      </Main>
+      {data && (
+        <Main>
+          <Link to="/">
+            <TextButton icon={BsChevronLeft} size={32} title="voltar" />
+          </Link>
+          <div>
+            <img
+              src={`${api.defaults.baseURL}/files/${data.image}`}
+              alt="Imagem do prato"
+            />
+            <Info>
+              <div>
+                <h2>{data.title}</h2>
+                <p>{data.description}</p>
+                <Ingredients>
+                  {data.ingredients.map((ingredient) => (
+                    <Tag title={ingredient.name} />
+                  ))}
+                </Ingredients>
+              </div>
+              <BuyOptions />
+            </Info>
+          </div>
+        </Main>
+      )}
       <Footer />
     </Container>
   );

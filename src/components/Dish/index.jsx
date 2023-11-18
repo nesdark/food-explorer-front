@@ -9,6 +9,7 @@ export function Dish({
   price,
   admin = false,
   id,
+  handleDetails,
 }) {
   return (
     <Container className={admin ? 'admin' : ''}>
@@ -50,11 +51,9 @@ export function Dish({
         )}
       </Favorite>
 
-      <img src={`../../../public/${imgSource}.png`} alt="Foto do prato" />
+      <img src={imgSource} alt="Foto do prato" />
 
-      <h3>
-        <Link to={`/dish/${id}`}>{name} &gt;</Link>
-      </h3>
+      <h3 onClick={() => handleDetails(id)}>{name} &gt;</h3>
 
       <p>{description}</p>
 

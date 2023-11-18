@@ -6,13 +6,15 @@ import { Logo } from '../../components/Logo';
 import { LabelInput } from '../../components/LabelInput';
 import { Button } from '../../components/Button';
 import { TextButton } from '../../components/TextButton';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { useRef, useState } from 'react';
 
 export function SignOn() {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+
+  const navigate = useNavigate();
 
   function handleSignUp(e) {
     e.preventDefault();
@@ -32,6 +34,8 @@ export function SignOn() {
           alert('Não foi possível cadastrar');
         }
       });
+
+    navigate('/');
   }
 
   const app = useRef();

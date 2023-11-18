@@ -12,7 +12,7 @@ import { TextButton } from '../../../components/TextButton/index.jsx';
 import { Input } from '../../../components/Input/index.jsx';
 import { LabelInput } from '../../../components/LabelInput/index.jsx';
 import { Items } from '../../../components/Items/index.jsx';
-import { useNavigate, Link } from 'react-router-dom';
+import { useNavigate, Link, Form } from 'react-router-dom';
 
 export function CreateDish() {
   const [title, setTitle] = useState('');
@@ -47,6 +47,12 @@ export function CreateDish() {
   async function handleNewProduct(e) {
     e.preventDefault();
 
+    if (!dishImageFile) {
+      return alert('Selecione uma imagem para o produto');
+    }
+
+    console.log(dishImageFile);
+
     if (!title) {
       return alert('Digite o nome do prato.');
     }
@@ -65,15 +71,11 @@ export function CreateDish() {
       return alert('Por favor adicione um ou mais ingredientes.');
     }
 
-    if (!title) {
-      return alert('Digite o preço do produto');
-    }
-
     if (!description) {
-      return alert('Digite o preço do produto');
+      return alert('Digite a descrição do produto');
     }
 
-    const response = await api.post('/products/create', {
+    const resp = await api.post('/products/create', {
       title,
       price,
       description,
@@ -82,9 +84,10 @@ export function CreateDish() {
       image: 'image-url',
     });
 
-    console.log({ dishImageFile });
+    const fileUploadForm = new FormData();
+    fileUploadForm.append('image', dishImageFile);
 
-    await api.patch(`/products/image/${response.data.id}`, { dishImageFile });
+    await api.patch(`/products/image/${resp.data.id}`, fileUploadForm);
 
     alert('Prato criada com sucesso!');
     navigate('/');
@@ -92,7 +95,12 @@ export function CreateDish() {
 
   function handleChangeDishImage(event) {
     const file = event.target.files[0];
-    setDishImageFile(file.name);
+
+    if (!file) {
+      return;
+    }
+
+    setDishImageFile(file);
 
     const imagePreview = URL.createObjectURL(file);
     setDishImage(imagePreview);
@@ -113,7 +121,7 @@ export function CreateDish() {
             <Input
               type="file"
               icon={BsUpload}
-              label="Selecione a imagem"
+              label={dishImageFile ? dishImageFile.name : 'Selecione imagem'}
               accept="image/*"
               onChange={handleChangeDishImage}
             />
@@ -129,9 +137,9 @@ export function CreateDish() {
             Categoria
             <select id="category" onChange={handleCategory}>
               <option value="">Selecione uma opção</option>
-              <option value="Refeição">Refeição</option>
-              <option value="Sobremesa">Sobremesa</option>
-              <option value="Bebidas">Bebidas</option>
+              <option value="meals">Refeição</option>
+              <option value="dessert">Sobremesa</option>
+              <option value="drinks">Bebidas</option>
             </select>
           </label>
           <div className="ingredients">

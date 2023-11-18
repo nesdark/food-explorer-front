@@ -17,7 +17,6 @@ import { Link } from 'react-router-dom';
 
 export function Header({ admin = false, search }) {
   const { signOut } = useAuth();
-  console.log(search);
 
   const header = useRef();
 
@@ -53,7 +52,7 @@ export function Header({ admin = false, search }) {
         type="search"
         icon={BsSearch}
         placeholder="Busque por pratos ou ingredientes"
-        Search={search}
+        search={search}
       />
 
       {admin ? (
@@ -74,14 +73,17 @@ export function Header({ admin = false, search }) {
           type="search"
           icon={BsSearch}
           placeholder="Busque por pratos ou ingredientes"
+          search={search}
         />
         {admin ? (
           <li onClick={MenuControls.close}>
-            <TextButton title="Novo prato" />
+            <Link to="/dish/create">
+              <TextButton title="Novo prato" />
+            </Link>
           </li>
         ) : null}
 
-        <li onClick={MenuControls.close}>
+        <li onClick={(MenuControls.close, signOut)}>
           <TextButton title="Sair" />
         </li>
       </Menu>

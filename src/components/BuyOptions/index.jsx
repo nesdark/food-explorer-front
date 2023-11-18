@@ -1,14 +1,27 @@
-import { Container, Quantity } from './styles.js';
+import { useState } from 'react';
 
+import { Container, Quantity } from './styles.js';
 import { Button } from '../Button';
 import { breakpoints } from '../../pages/styles/breakpoints.js';
 import { Link } from 'react-router-dom';
 
 export function BuyOptions(breakpoint = false) {
+  const [quantity, setQuantity] = useState(0);
+
+  function addQuantity(quantityToAdd) {
+    const newQuantity = quantity + quantityToAdd;
+    setQuantity(newQuantity);
+  }
+
+  function removeQuantity(quantityToRemove) {
+    const newQuantity = quantity > 0 ? quantity - quantityToRemove : quantity;
+    setQuantity(newQuantity);
+  }
+
   return (
     <Container>
       <Quantity>
-        <button id="lessQuantity">
+        <button id="lessQuantity" onClick={() => removeQuantity(1)}>
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="24"
@@ -25,9 +38,9 @@ export function BuyOptions(breakpoint = false) {
           </svg>
         </button>
 
-        <p>01</p>
+        <p>{quantity}</p>
 
-        <button id="moreQuantity">
+        <button id="moreQuantity" onClick={() => addQuantity(1)}>
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="24"

@@ -25,6 +25,12 @@ export const Container = styled.label`
   &:has(input[type='file']) {
     width: 100%;
 
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+
+    max-width: 24rem;
+
     border: none;
     border-radius: 0.8rem;
 

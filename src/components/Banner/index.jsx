@@ -9,7 +9,7 @@ export function Banner() {
       <Fruits>
         <img src={`../../../public/${banner}.png`} alt="Imagem de fruta" />
       </Fruits>
-      <div>
+      <div className="text">
         <h2>Sabores inigualáveis</h2>
         <p>Sinta o cuidado do preparo com ingredientes selecionados</p>
       </div>

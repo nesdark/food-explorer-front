@@ -3,6 +3,8 @@ import theme from '../../pages/styles/theme';
 import { breakpoints } from '../../pages/styles/breakpoints';
 
 export const Container = styled.header`
+  animation: TopToBottom 500ms forwards;
+
   width: 100%;
   min-height: 10.4rem;
 
@@ -31,7 +33,7 @@ export const Container = styled.header`
   @media (max-width: ${breakpoints.MD}) {
     justify-content: space-between;
 
-    &.admin > button:not(.open-menu, .close-menu) {
+    &.admin > a button:not(.open-menu, .close-menu) {
       visibility: hidden;
       opacity: 0;
 
@@ -51,7 +53,8 @@ export const Container = styled.header`
     > h2,
     > label,
     &.menu-active > h1,
-    &.menu-active > button {
+    &.menu-active > button,
+    &.menu-active > a button {
       display: none;
     }
 
@@ -80,6 +83,18 @@ export const Container = styled.header`
     top: 10.4rem;
     left: 0;
   }
+
+  @keyframes TopToBottom {
+    from {
+      opacity: 0;
+      transform: translateY(-100%);
+    }
+
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
 `;
 
 export const Menu = styled.ul`
@@ -93,7 +108,7 @@ export const Menu = styled.ul`
 
   background-color: ${({ theme }) => theme.COLORS.DARK_400};
 
-  padding: 2.4.8rem;
+  padding: 3.6rem 2.8rem;
 
   > label {
     margin-bottom: 3.6rem;

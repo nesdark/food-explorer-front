@@ -17,4 +17,16 @@ export const Container = styled.section`
   @media (max-width: ${breakpoints.LG}) {
     margin-right: 0;
   }
+
+  @keyframes TopToBottom {
+    from {
+      opacity: 0;
+      transform: translateY(-100%);
+    }
+
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
 `;

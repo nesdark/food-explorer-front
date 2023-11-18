@@ -40,6 +40,9 @@ export const Main = styled.main`
   img {
     width: clamp(26.4rem, 12.451vw + 21.071rem, 39rem);
     height: clamp(26.4rem, 12.451vw + 21.071rem, 39rem);
+
+    object-fit: cover;
+    clip-path: circle();
   }
 
   @media (max-width: ${breakpoints.MD}) {
