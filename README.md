@@ -74,7 +74,7 @@ Depois disso abra a seguinte URL no seu navegador
 
 Você pode visualizar o layout do projeto através [DESSE LINK](<https://www.figma.com/file/C03SkcGvmm94VxYOxbXbsx/food-explorer-v2-(Community)?type=design&node-id=201-1532&mode=design&t=FIbwMVHSZLJYQ4gk-0>). É necessário ter conta no [Figma](https://figma.com) para acessá-lo. <br>
 
-Caso queira acessa-lo atráves da internet utilize [este link](https://nesdark.github.io/nlw-10-explorer/).
+Caso queira acessa-lo atráves da internet utilize [este link](https://main--food-explorer-chris.netlify.app/).
 
 Caso queira acessar o back-end use [este link](https://github.com/nesdark/food-explorer-back).
 
