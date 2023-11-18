@@ -56,18 +56,21 @@ export function EditDish() {
     setDishImage(imagePreview);
   }
 
-  async function handleUpdateDish() {
+  async function handleUpdateDish(e) {
+    e.preventDefault();
+
     await api.put(`/products/update/${params.id}`, {
       title,
       price,
       description,
       ingredients: items,
       category,
-      image: 'image-url',
     });
 
     const fileUploadForm = new FormData();
     fileUploadForm.append('image', dishImageFile);
+
+    console.log(fileUploadForm, dishImageFile);
 
     await api.patch(`/products/image/${params.id}`, fileUploadForm);
 
@@ -75,7 +78,9 @@ export function EditDish() {
     navigate('/');
   }
 
-  async function handleDeleteDish() {
+  async function handleDeleteDish(e) {
+    e.preventDefault();
+
     await api.delete(`/products/${params.id}`);
 
     alert('Prato excluído com sucesso!');
@@ -185,10 +190,10 @@ export function EditDish() {
             </label>
 
             <div>
-              <button type="button" onClick={handleDeleteDish}>
+              <button type="button" onClick={(e) => handleDeleteDish(e)}>
                 Excluir prato
               </button>
-              <button type="submit" onClick={handleUpdateDish}>
+              <button type="submit" onClick={(e) => handleUpdateDish(e)}>
                 Salvar alterações
               </button>
             </div>
