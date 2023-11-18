@@ -7,7 +7,7 @@ export function Banner() {
   return (
     <Container>
       <Fruits>
-        <img src={`../../public/${banner}.png`} alt="Imagem de fruta" />
+        <img src={`src/public/${banner}.png`} alt="Imagem de fruta" />
       </Fruits>
       <div className="text">
         <h2>Sabores inigualáveis</h2>
